@@ -36,7 +36,7 @@
             "metadata": {
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             },
-            "defaultValue": 30
+            "defaultValue": 365
         },
         "immediatePurgeDataOn30Days": {
             "type": "bool",
@@ -56,7 +56,8 @@
             ],
             "metadata": {
                 "description": "Tier for gathering Windows Security Events."
-            }
+            },
+            "defaultValue": "Recommended"
         },
         "enableDataConnectorsKind": {
             "type": "array",
