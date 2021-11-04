@@ -6,7 +6,7 @@
         "config": {
             "isWizard": true,
             "basics": {
-                "description": "**Azure Sentinel All-In-One** deployment, see more information about this project [here](https://github.com/Azure/Azure-Sentinel/Tools/Sentinel-All-In-One/).",
+                "description": "**Six Degrees Microsoft Sentinel Deployment**",
                 "location": {
                     "label": "Location",
                     "toolTip": "Location for all resources",
@@ -21,7 +21,7 @@
                 "name": "workspaceName",
                 "type": "Microsoft.Common.TextBox",
                 "label": "Workspace Name",
-                "placeholder": "",
+                "placeholder": "Log-SIEM-CustomerName",
                 "defaultValue": "",
                 "toolTip": "The workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol.",
                 "constraints": {
