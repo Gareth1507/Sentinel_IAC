@@ -50,7 +50,7 @@
                 "type": "Microsoft.Common.TextBox",
                 "label": "Number of days of retention",
                 "placeholder": "",
-                "defaultValue": "90",
+                "defaultValue": "365",
                 "toolTip": "Only numbers allowed",
                 "constraints": {
                     "required": true,
