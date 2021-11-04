@@ -21,8 +21,8 @@
                 "name": "workspaceName",
                 "type": "Microsoft.Common.TextBox",
                 "label": "Workspace Name",
-                "placeholder": "Log-SIEM-CustomerName",
-                "defaultValue": "",
+                "placeholder": "",
+                "defaultValue": "Log-SIEM-CustomerName",
                 "toolTip": "The workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol.",
                 "constraints": {
                     "required": true,
@@ -92,7 +92,7 @@
                                     "value": "Office365"
                                 },
                                 {
-                                    "label": "Azure ATP",
+                                    "label": "Defender for Identity",
                                     "value": "AzureAdvancedThreatProtection"
                                 },
                                 {
@@ -100,15 +100,15 @@
                                     "value": "AzureActiveDirectory"
                                 },
                                 {
-                                    "label": "Microsoft Defender ATP",
+                                    "label": "Microsoft Defender for Endpoint",
                                     "value": "MicrosoftDefenderAdvancedThreatProtection"
                                 },
                                 {
-                                    "label": "Azure Security Center",
+                                    "label": "Microsoft Defender for Cloud",
                                     "value": "AzureSecurityCenter"
                                 },
                                 {
-                                    "label": "Microsoft Cloud App Security",
+                                    "label": "Microsoft Defender for Cloud Apps",
                                     "value": "MicrosoftCloudAppSecurity"
                                 },
                                 {
@@ -118,18 +118,6 @@
                                 {
                                     "label": "Security Events",
                                     "value": "SecurityEvents"
-                                },
-                                {
-                                    "label": "Windows Firewall",
-                                    "value": "WindowsFirewall"
-                                },
-                                {
-                                    "label": "DNS Analytics",
-                                    "value": "DNS"
-                                },
-                                {
-                                    "label": "Linux Syslog",
-                                    "value": "Syslog"
                                 }
                             ],
                             "required": true
@@ -139,8 +127,8 @@
                     {
                         "name": "mcasDiscoveryLogs",
                         "type": "Microsoft.Common.CheckBox",
-                        "label": "Enable MCAS Discovery Logs?",
-                        "toolTip": "Select to bring MCAS discovery logs into Sentinel. These logs are billed.",
+                        "label": "Enable Microsoft Defender for Cloud Apps Discovery Logs?",
+                        "toolTip": "Select to bring Microsoft Defender for Cloud Apps discovery logs into Sentinel. These logs are billed.",
                         "constraints": {
                             "required": false,
                             "validationMessage": "Please select"
