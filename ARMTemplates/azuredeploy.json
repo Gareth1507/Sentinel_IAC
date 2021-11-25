@@ -86,26 +86,12 @@
             },
             "defaultValue": false
         },
-        "enableScheduledAlerts": {
-            "type": "bool",
-            "metadata": {
-                "description": "Enable Scheduled analytics rules"
-            },
-            "defaultValue": false
-        },
-        "mcasDiscoveryLogs": {
-            "type": "bool",
-            "metadata": {
-                "description": "Enable MCAS Discovery Logs"
-            },
-            "defaultValue": false
-        },
         "_artifactsLocation": {
             "type": "string",
             "metadata": {
                 "description": "The location of resources"
             },
-            "defaultValue": "https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Tools/Sentinel-All-In-One/"
+            "defaultValue": "https://raw.githubusercontent.com/Gareth1507/Sentinel_IAC"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring",
@@ -192,9 +178,6 @@
                     "securityCollectionTier": {
                         "value": "[parameters('securityCollectionTier')]"
                     },
-                    "mcasDiscoveryLogs": {
-                        "value": "[parameters('mcasDiscoveryLogs')]"
-                    },
                     "location": {
                         "value": "[parameters('location')]"
                     }
@@ -233,30 +216,6 @@
                     },
                     "enableMLAlerts":{
                         "value": "[parameters('enableMLAlerts')]"
-                    }
-                }
-            }
-        },
-        {
-            "condition": "[parameters('enableScheduledAlerts')]",
-            "name": "enableScheduledAlerts",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-05-01",
-            "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments/', 'enableAlerts')]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(parameters('_artifactsLocation'), concat('ARMTemplates/LinkedTemplates/scheduledAlerts.json', parameters('_artifactsLocationSasToken')))]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "workspaceName": {
-                        "value": "[parameters('workspaceName')]"
-                    },
-                    "dataConnectorsList":{
-                        "value": "[replace(replace(string(parameters('enableDataConnectorsKind')),'\"',''),'[','')]"
                     }
                 }
             }

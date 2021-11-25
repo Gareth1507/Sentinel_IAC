@@ -70,7 +70,7 @@
                         "type": "Microsoft.Common.TextBlock",
                         "visible": true,
                         "options": {
-                            "text": "Please select which connectors you want to onboard into your Azure Sentinel environment",
+                            "text": "Please select which connectors you want to onboard into your Microsoft Sentinel environment",
                             "link": {
                                 "label": "Learn more",
                                 "uri": "https://www.microsoft.com"
@@ -123,17 +123,6 @@
                             "required": true
                         },
                         "visible": true
-                    },
-                    {
-                        "name": "mcasDiscoveryLogs",
-                        "type": "Microsoft.Common.CheckBox",
-                        "label": "Enable Microsoft Defender for Cloud Apps Discovery Logs?",
-                        "toolTip": "Select to bring Microsoft Defender for Cloud Apps discovery logs into Sentinel. These logs are billed.",
-                        "constraints": {
-                            "required": false,
-                            "validationMessage": "Please select"
-                        },
-                        "visible": "[if(contains(steps('dataConnectors').enableDataConnectorsKind,'MicrosoftCloudAppSecurity'), true, false)]"
                     },
                     {
                         "name": "securityCollectionTier",
@@ -198,17 +187,6 @@
                             "validationMessage": "Enables SSH and/or RDP anomalous login alerts"
                         },
                         "visible": "[if(or(contains(steps('dataConnectors').enableDataConnectorsKind,'Syslog'),contains(steps('dataConnectors').enableDataConnectorsKind,'SecurityEvents')), true, false)]"
-                    },
-                    {
-                        "name": "enableScheduledAlerts",
-                        "type": "Microsoft.Common.CheckBox",
-                        "label": "Enable Scheduled alert rules for selected connectors?",
-                        "toolTip": "Select to enable scheduled analytics rules for selected connectors",
-                        "constraints": {
-                            "required": false,
-                            "validationMessage": "Enables Scheduled rules matching any of the selected connectors"
-                        },
-                        "visible": true
                     }
                 ]
             }
@@ -219,12 +197,10 @@
             "dataRetention": "[basics('dataRetention')]",
             "enableDataConnectorsKind": "[steps('dataConnectors').enableDataConnectorsKind]",
             "securityCollectionTier": "[steps('dataConnectors').securityCollectionTier]",
-            "mcasDiscoveryLogs": "[steps('dataConnectors').mcasDiscoveryLogs]",
             "location": "[location()]",
             "enableFusionAlert": "[steps('analyticsRules').enableFusionAlert]",
             "enableMicrosoftAlerts": "[steps('analyticsRules').enableMicrosoftAlerts]",
-            "enableMLAlerts": "[steps('analyticsRules').enableMLAlerts]",
-            "enableScheduledAlerts": "[steps('analyticsRules').enableScheduledAlerts]"
+            "enableMLAlerts": "[steps('analyticsRules').enableMLAlerts]"
         }
     }
 }
